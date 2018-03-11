@@ -1,0 +1,16 @@
+{
+  "name": "express-toolbox",
+  "description": "Simple Toolbox Application",
+  "version": "0.1.0",
+  "dependencies": {
+    "ejs": "2.5.7",
+    "express": "4.16.2",
+    "formidable": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "engines": {
+    "node": "0.10.x",
+    "npm": ">1.4.0"
+  }
+}
