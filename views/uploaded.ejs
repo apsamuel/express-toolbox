@@ -9,24 +9,48 @@
     <script src="http://localhost:3000/public/chromata.min.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="content-container fade-in">
       <h2>Received iCandydate file: <%= thefile %></h2>
       <hr>
-      <img src='./<%= thepath %>' alt='woops...' height='200' width='400'>
-      <h3>And here it is</h3>
+      <img src='./<%= thepath %>' class='user' alt='woops...' >
+      <h3>Instructions</h3>
+      <hr>
+      <p>
+        How To Generate Candy.
+      </p>
+      <ol>
+        <li>The top 'port' is your original uncandified (touched up)</li>
+        <li>The bottom 'port' is your view port, it will contain your candy.</li>
+        <li>The buttons below are the control panel, they will generate candy.</li>
+        <li>Always use the reset button to switch between candy flavors</li>
+        <li>You can always stop the candy making and just take it all in</li>
+        <li>Then start the candy making back up</li>
+      </ol>
     </div>
-    <div class="preview main">
-      <h2>Let's make some iCandy</h2>
+    <div class="preview main fade-in">
+      <h2>View Port</h2>
       <script>
       $(window).bind("load", function () {
         // setup the chromata variable
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
       });
+
+
+      function resetChromata() {
+        chromata.reset()  ;
+      }
+
+      function stopChromata() {
+        chromata.stop() ;
+      }
+
+      function startChromata() {
+        chromata.start()   ;
+      }
 
       //make a fractal like design.
       function makeFractal() {
-        //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "color";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -34,17 +58,16 @@
         chromata.options.lineMode = "smooth";
         chromata.options.lineWidth = 1;
         chromata.options.origin = ["45% 50%"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 40;
         chromata.options.speed = 15;
         chromata.options.turningAngle = Math.PI * .5;
         chromata.start()          ;
-      //})
+
       };
 
       function makeLineSketch() {
-        //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "grayscale";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -52,17 +75,17 @@
         chromata.options.lineMode = "smooth";
         chromata.options.lineWidth = 2;
         chromata.options.origin = ["50% 50%"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 40;
         chromata.options.speed = 8;
         chromata.options.turningAngle = Math.PI * 2;
         chromata.start()          ;
-      //})
+
       };
 
       function makeImpressionism() {
         //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "color";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -70,17 +93,16 @@
         chromata.options.lineMode = "point";
         chromata.options.lineWidth = 3;
         chromata.options.origin = ["50% 50%"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 40;
         chromata.options.speed = 8;
         chromata.options.turningAngle = Math.PI * 2;
         chromata.start()          ;
-      //})
+
       };
 
       function makeGeometric() {
-        //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "color";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -88,17 +110,16 @@
         chromata.options.lineMode = "square";
         chromata.options.lineWidth = 2;
         chromata.options.origin = ["50% 0%", "50% 99%"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 30;
         chromata.options.speed = 3;
         chromata.options.turningAngle = Math.PI * .5;
         chromata.start()          ;
-      //})
+
       };
 
       function makeHalftone() {
-        //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "color";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -106,17 +127,16 @@
         chromata.options.lineMode = "point";
         chromata.options.lineWidth = 10;
         chromata.options.origin = ["50% 46%"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 10;
         chromata.options.speed = 10;
         chromata.options.turningAngle = Math.PI * .5;
         chromata.start()          ;
-      //})
+
       };
 
       function makeNeon() {
-        //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "color";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -124,17 +144,16 @@
         chromata.options.lineMode = "smooth";
         chromata.options.lineWidth = 2;
         chromata.options.origin = ["bottom", "left", "right"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 30;
         chromata.options.speed = 3;
         chromata.options.turningAngle = Math.PI * .5;
         chromata.start()          ;
-      //})
+
       };
 
       function makeNeon() {
-        //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "color";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -142,17 +161,16 @@
         chromata.options.lineMode = "smooth";
         chromata.options.lineWidth = 2;
         chromata.options.origin = ["bottom", "left", "right"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 30;
         chromata.options.speed = 3;
         chromata.options.turningAngle = Math.PI * .5;
         chromata.start()          ;
-      //})
+
       };
 
       function makePixels() {
-        //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "greyscale";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -160,17 +178,17 @@
         chromata.options.lineMode = "square";
         chromata.options.lineWidth = 4;
         chromata.options.origin = ["45% 70%","85% 50%","70% 35%"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 60;
         chromata.options.speed = 4;
         chromata.options.turningAngle = Math.PI * .5;
         chromata.start()          ;
-      //})
       };
 
       function makeSketch() {
         //$(window).bind("load", function () {
-        var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        //var chromata = new Chromata(document.querySelector('div.preview.main img.viewport'));
+        chromata.stop();
         chromata.options.colorMode = "greyscale";
         chromata.options.compositeOperation = "lighten";
         chromata.options.iterationLimit = 0     ;
@@ -178,29 +196,30 @@
         chromata.options.lineMode = "smooth";
         chromata.options.lineWidth = 1;
         chromata.options.origin = ["40% 33%","65% 33%"];
-        chromata.options.outputSize = "container";
+        chromata.options.outputSize = "original";
         chromata.options.pathFinderCount = 40;
         chromata.options.speed = 2;
         chromata.options.turningAngle = Math.PI * 1.5;
         chromata.start()          ;
-      //})
       };
-
-
       </script>
-      <img src='./<%= thepath %>' class='viewport' alt='woops...' height='200' width='400'>
+
+      <img src='./<%= thepath %>' class='viewport' alt='woops...'>
 
 
       <div class='controlport'>
         <form >
-          <button type="button" onclick="makeFractal()">Fractals</button>
-          <button type="button" onclick="makeLineSketch()">Lines</button>
-          <button type="button" onclick="makeImpressionism()">Impressionist</button>
-          <button type="button" onclick="makeGeometric()">Geometric</button>
-          <button type="button" onclick="makeHalftone()">Half Tone</button>
-          <button type="button" onclick="makeNeon()">Neon</button>
-          <button type="button" onclick="makePixels()">Pixelize</button>
-          <button type="button" onclick="makeSketch()">Etch-A-Sketch</button>
+          <button class="ghost-button" type="button" onclick="resetChromata()">Reset</button>
+          <button class="ghost-button" type="button" onclick="startChromata()">Start</button>
+          <button class="ghost-button" type="button" onclick="stopChromata()">Stop</button>
+          <button class="ghost-button" type="button" onclick="makeFractal()">Fractals</button>
+          <button class="ghost-button" type="button" onclick="makeLineSketch()">Lines</button>
+          <button class="ghost-button" type="button" onclick="makeImpressionism()">Impressionist</button>
+          <button class="ghost-button" type="button" onclick="makeGeometric()">Geometric</button>
+          <button class="ghost-button" type="button" onclick="makeHalftone()">Half Tone</button>
+          <button class="ghost-button" type="button" onclick="makeNeon()">Neon</button>
+          <button class="ghost-button" type="button" onclick="makePixels()">Pixelize</button>
+          <button class="ghost-button" type="button" onclick="makeSketch()">Etch-A-Sketch</button>
         </form>
       </div>
     </div>

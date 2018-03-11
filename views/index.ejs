@@ -5,6 +5,7 @@
     <title>Dark Photon Labs: Robot Candy</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Rammetto One' rel='stylesheet'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
@@ -16,14 +17,13 @@
     </script>
   </head>
   <body>
-    <div class="container">
-      <h2>Hello There!<h2>
+    <div class="content-container fade-in">
+      <h2>Dark Photon Labs: Robot Candy!<h2>
       <fieldset>
         <!- this form.file upload  method must be multi-part and multiple, or formidable wont see it->
         <form action="/" method="post" enctype="multipart/form-data">
-          <input name="file" type="file" id="file-input" class="file-input" placeholder="Select File" multiple required>
-          <input name="test" type="text" id="text-input" class="text-input" placeholder="Say Something Testy.." required>
-          <input type="submit" id="submit" class="user-button" value="Make iCandy">
+          <input name="file" accept=".jpg, .jpeg, .png" type="file" id="-input" class="ghost-input" placeholder="Select an Image File" multiple required>
+          <input type="submit" id="submit" class="ghost-button" value="Generate iCandy">
         </form>
       </fieldset>
     </div>
