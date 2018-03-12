@@ -46,7 +46,9 @@ app.post('/', function(req, res){
   //rename it with ORIG_<timestamp>,
   //.. and place it in the upload directory
   form.on('fileBegin', function(name, file) {
-    const [fileName, fileExt] = file.name.split('.') ;
+    //const [fileName, fileExt] = file.name.split('.') ;
+    var fileName = file.name.split('.')[0];
+    var fileExt = file.name.split('.')[1];
     console.log("filename: " +fileName);
     console.log("fileExt: "+fileExt);
     file.path = path.join(uploadDir, `${fileName}_${new Date().getTime()}.${fileExt}`);
